@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "707650386211",
+    "firebase_url": "https://covidupdate-94b33.firebaseio.com",
+    "project_id": "covidupdate-94b33",
+    "storage_bucket": "covidupdate-94b33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707650386211:android:44b93bdee82649b27c7496",
+        "android_client_info": {
+          "package_name": "com.amit.covidupdate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707650386211-7k9qba0rtr13c0eo2bqvihmjrddcid52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs-v_WLsTMMLj6pQrQVfFjkLfUFIviHA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707650386211-7k9qba0rtr13c0eo2bqvihmjrddcid52.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
