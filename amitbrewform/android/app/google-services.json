@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "499329276694",
+    "firebase_url": "https://amitbrewcrew.firebaseio.com",
+    "project_id": "amitbrewcrew",
+    "storage_bucket": "amitbrewcrew.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499329276694:android:46c6813915a265ad818e37",
+        "android_client_info": {
+          "package_name": "com.example.amitbrewform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499329276694-7pnpc9folo6p3jdjjfjfott2sqc1pebn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4qovEXEJ_tfWa7P64JC88xhv2K4gha5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499329276694-7pnpc9folo6p3jdjjfjfott2sqc1pebn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
