@@ -4,6 +4,20 @@ import 'package:flutter/material.dart';
 class SubjectGrid extends StatelessWidget {
 //  SubjectGrid({Key key, this.title}) : super(key: key);
 //  final String title;
+//List<List<int>> subjects = [
+//  [0] = ["Chemistry","black"];
+//  ["Electrical","Blue"];
+//  ["Maths","pink"];
+//  ["CP","yellow"];
+//  ["Social-S",'green];
+//];
+  final List<String> subjects = [
+  "Chemistry",
+  "Electrical",
+  "Maths",
+  "CP",
+  "Social-S",
+];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,33 +26,30 @@ class SubjectGrid extends StatelessWidget {
       ),
       body: Container(
         color: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            GestureDetector(
-              onTap: (){Navigator.pushNamed(context, 'pert_subj');},
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.all(Radius.circular(5))
-                ),
+        child: GridView(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          scrollDirection: Axis.vertical,
+          children: subjects.map((title){
+          return  GestureDetector(
+                onTap: (){Navigator.pushNamed(context, 'pert_subj', arguments: {'title':title});},
+                child: Container(
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                      Text(title,style: TextStyle(fontSize: 20,letterSpacing: 3,color: Colors.white),textAlign: TextAlign.center,)
+                      ],
+                           ),
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
                 height: 180,
                 width: 170,
                 margin: EdgeInsets.all(10),
-              ),
-            ),
-            GestureDetector(
-              onTap: (){Navigator.pushNamed(context, 'pert_subj');},
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.all(Radius.circular(5))
-                ),
-                height: 180,
-                width: 170,
-                margin: EdgeInsets.all(10),),
-            )
-          ],
+                ),);
+                }).toList(),
+
+
         ),
       ),
     );

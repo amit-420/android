@@ -17,7 +17,7 @@ class MBoard extends StatefulWidget {
   @override
   _MBoardState createState() => _MBoardState();
 }
-void _print(string){
+void _print(String string){
   debugPrint(string);
 }
 
@@ -26,6 +26,7 @@ class _MBoardState extends State<MBoard> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Expanded(
             flex: 11,
@@ -37,12 +38,29 @@ class _MBoardState extends State<MBoard> {
           ),
           Expanded(
             flex: 1,
-              child:Container(
-                      padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-                      child: TextField(
-                          onSubmitted: (context)=> _print(context),
-                          decoration: InputDecoration(hintText: 'message here')),
-                  ),
+              child:Row(
+                children: <Widget>[
+                  Container(
+                          decoration: BoxDecoration(
+                            color: Colors.yellowAccent[200],
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          width: 320,
+                          margin: EdgeInsets.fromLTRB(8, 0, 2, 0),
+                          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                          child: TextField(
+                              onSubmitted: (context)=> _print(context),
+                              decoration: InputDecoration(hintText: 'message here')),
+                      ),
+                  IconButton(
+                    onPressed: (){
+                      _print('Drop down menu');
+                    },
+                    iconSize: 35,
+                    icon: Icon(
+                        Icons.attach_file),)
+                ],
+              ),
           ),
 
         ],
