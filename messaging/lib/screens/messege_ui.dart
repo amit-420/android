@@ -6,7 +6,9 @@ class MesUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('messaging Center',style: TextStyle(fontSize: 20,),),
+        title: Text('messaging Center',style: TextStyle(fontSize: 20,letterSpacing: 4,color: Colors.white10,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+        backgroundColor: Colors.black87,
+        elevation: 0,
       ),
       body: MBoard(),
     );
@@ -32,7 +34,7 @@ class _MBoardState extends State<MBoard> {
             flex: 11,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.limeAccent[400],
+                color: Colors.black87,
               ),
             ),
           ),
@@ -42,8 +44,8 @@ class _MBoardState extends State<MBoard> {
                 children: <Widget>[
                   Container(
                           decoration: BoxDecoration(
-                            color: Colors.yellowAccent[200],
-                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.black87,
+                            borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft:Radius.zero,bottomLeft: Radius.circular(20)),
                           ),
                           width: 320,
                           margin: EdgeInsets.fromLTRB(8, 0, 2, 0),
@@ -58,7 +60,8 @@ class _MBoardState extends State<MBoard> {
                     },
                     iconSize: 35,
                     icon: Icon(
-                        Icons.attach_file),)
+                        Icons.attach_file),
+                  color: Colors.black87,)
                 ],
               ),
           ),

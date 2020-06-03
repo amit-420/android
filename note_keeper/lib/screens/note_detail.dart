@@ -200,7 +200,7 @@ void _delete() async{
     if(result != 0){
       _showAlertDialog('Status', 'Note deleted successfully');
     } else  {
-      _showAlertDialog('Status', 'Error Ocurred while Deleting note');
+      _showAlertDialog('Status', 'Error occurred while Deleting note');
     }
   }
 // Save data to database

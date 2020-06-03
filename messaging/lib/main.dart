@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.red,
-        accentColor: Color(0xFFFEF9EB),
+        accentColor: Colors.blue,
 
       ),
       initialRoute: '/',

@@ -22,10 +22,14 @@ class SubjectGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Subjects"),
+        title: Text("SUBJECTS",style: TextStyle(fontSize: 20,letterSpacing: 4,color: Colors.white10,fontWeight: FontWeight.bold),textAlign: TextAlign.center,strutStyle: StrutStyle(height: 5),),
+        bottomOpacity: 0.1,
+        backgroundColor: Colors.black87,
+        elevation: 0,
+        centerTitle: true,
       ),
       body: Container(
-        color: Colors.white,
+        color: Colors.black87,
         child: GridView(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           scrollDirection: Axis.vertical,
@@ -36,7 +40,7 @@ class SubjectGrid extends StatelessWidget {
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                      Text(title,style: TextStyle(fontSize: 20,letterSpacing: 3,color: Colors.white),textAlign: TextAlign.center,)
+                      Text(title,style: TextStyle(fontSize: 20,letterSpacing: 3,color: Colors.indigoAccent[400],fontWeight: FontWeight.bold),textAlign: TextAlign.center,)
                       ],
                            ),
                       decoration: BoxDecoration(
