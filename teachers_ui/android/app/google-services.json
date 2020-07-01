@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "220604169583",
+    "firebase_url": "https://collegeconnect-b0685.firebaseio.com",
+    "project_id": "collegeconnect-b0685",
+    "storage_bucket": "collegeconnect-b0685.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220604169583:android:6c9bbea51d90e18d3ffc9a",
+        "android_client_info": {
+          "package_name": "com.amit.teachersui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "220604169583-fmsogr9s2o07hlss7o5k555ulf8r7772.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3ZrDS29KFPxg1WfB753pYJa7fgrv9osI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "220604169583-fmsogr9s2o07hlss7o5k555ulf8r7772.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

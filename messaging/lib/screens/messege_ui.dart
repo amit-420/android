@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:messaging/constants.dart';
 
 class MesUI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('messaging Center',style: TextStyle(fontSize: 20,letterSpacing: 4,color: Colors.white10,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+        title: Text('messaging Center',style: appbar_text_Style,textAlign: TextAlign.center,),
         backgroundColor: Colors.black87,
         elevation: 0,
       ),

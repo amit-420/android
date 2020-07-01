@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:messaging/constants.dart';
 
 class OneSubject extends StatefulWidget {
 
@@ -23,7 +24,7 @@ class _OneSubjectState extends State<OneSubject> {
         centerTitle: true,
         backgroundColor: Colors.black87,
         elevation: 0,
-        title: Text(data['title'], style: TextStyle(fontSize: 20,letterSpacing: 4,color: Colors.white10,fontWeight: FontWeight.bold),textAlign: TextAlign.center,strutStyle: StrutStyle(height: 5),),
+        title: Text(data['title'], style: appbar_text_Style,textAlign: TextAlign.center,strutStyle: StrutStyle(height: 5),),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -43,8 +44,8 @@ class _OneSubjectState extends State<OneSubject> {
                         child: Card(
                           child: Center(
                             child: ListTile(
-                              title: Text('Assignment 1',style: TextStyle(fontSize: 20,letterSpacing: 3,color: Colors.redAccent[400],fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
-                              subtitle: Text('Deadline',style: TextStyle(fontSize: 20,letterSpacing: 3,color: Colors.redAccent[400],fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                              title: Text('Assignment 1',style: textStyleAssHig,textAlign: TextAlign.center,),
+                              subtitle: Text('Deadline',style: textStyleAssHig,textAlign: TextAlign.center,),
                             ),
                           ),
                           margin: EdgeInsets.all(20),
@@ -57,8 +58,8 @@ class _OneSubjectState extends State<OneSubject> {
                         child: Card(
                           child: Center(
                             child: ListTile(
-                              title: Text('Assignment 2',style: TextStyle(fontSize: 20,letterSpacing: 3,color: Colors.greenAccent[400],fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
-                              subtitle: Text('Deadline',style: TextStyle(fontSize: 20,letterSpacing: 3,color: Colors.greenAccent[400],fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                              title: Text('Assignment 2',style: textStyleAssLow,textAlign: TextAlign.center,),
+                              subtitle: Text('Deadline',style: textStyleAssLow,textAlign: TextAlign.center,),
                             ),
                           ),
                           margin: EdgeInsets.all(20),
@@ -71,8 +72,8 @@ class _OneSubjectState extends State<OneSubject> {
                         child: Card(
                           child: Center(
                             child: ListTile(
-                              title: Text('Assignment 3',style: TextStyle(fontSize: 20,letterSpacing: 3,color: Colors.yellowAccent[400],fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
-                              subtitle: Text('Deadline',style: TextStyle(fontSize: 20,letterSpacing: 3,color: Colors.yellowAccent[400],fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                              title: Text('Assignment 3',style: textStyleAssMed,textAlign: TextAlign.center,),
+                              subtitle: Text('Deadline',style: textStyleAssMed,textAlign: TextAlign.center,),
                             ),
                           ),
                           margin: EdgeInsets.all(20),

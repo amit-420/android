@@ -86,9 +86,7 @@ class _RegisterState extends State<Register> {
                          error = 'please supply a valid email';
                          loading = false;
                        });
-                     }
-                    }
-                    },
+                     }}},
                 ),
                 SizedBox(height: 12.0,),
                 Text(

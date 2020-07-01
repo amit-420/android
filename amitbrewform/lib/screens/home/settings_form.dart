@@ -69,7 +69,6 @@ class _SettingsFormState extends State<SettingsForm> {
                   value: (_currentStrength ?? userData.strength).toDouble(),
                   activeColor: Colors.brown[_currentStrength ?? userData.strength],
                   inactiveColor: Colors.brown[_currentStrength ?? userData.strength],
-
                   min: 100,
                   max: 900,
                   divisions: 8,
