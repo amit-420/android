@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<Teacher>(context);
+    final user =  Provider.of<Teacher>(context);
     if (user == null) {
       return Login();
     }

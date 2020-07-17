@@ -23,10 +23,6 @@ class _OneSection1State extends State<OneSection1> {
     if ( data != null) {
       return Scaffold(
         appBar: AppBar(
-          leading: IconButton(icon: Icon(Icons.menu), onPressed: () {
-            debugPrint('menu pressed');
-            Navigator.pushReplacementNamed(context, 'dashboard');
-          }),
           title: Text(
             "${data['section']} Section",
             style: appbar_style,
@@ -35,8 +31,9 @@ class _OneSection1State extends State<OneSection1> {
           backgroundColor: Colors.black87,
           elevation: 0,
           centerTitle: true,
-        ),
 
+        ),
+        drawer: DashBoard(),
         body: Container(
           decoration: BoxDecoration(
             color: Colors.black87,

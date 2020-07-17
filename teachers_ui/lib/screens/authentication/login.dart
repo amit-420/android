@@ -93,7 +93,7 @@ class _FormFieldState extends State<FormField> {
                     });
                   }else{
                     error = 'User logged in successfully';
-                    Navigator.pushReplacementNamed(context, 'absents');
+                    Navigator.pushReplacementNamed(context, '/');
                     loading = false;
                   }
                 }

@@ -155,9 +155,12 @@ class _FormFieldState extends State<FormField> {
                   if (result == null) {
                     setState(() {
                       error = 'please supply a valid email';
-
-                      Navigator.pushReplacementNamed(context, 'absents');
                     });
+                  }else{
+                    setState(() {
+                      error = "YOU have created account successfully";
+                    });
+                    Navigator.pushReplacementNamed(context, '/');
                   }
                 }
               },

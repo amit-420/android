@@ -21,9 +21,10 @@ class DashBoard extends StatefulWidget {
 
 class _DashBoardState extends State<DashBoard> {
   final List<Link> list = [
-    Link(displayName: "Assignment Distro", url: 'section'),
-    Link(displayName: "Syllabus Tracking", url: 'section'),
+    Link(displayName: "Assignment Distro", url: 'message'),
+    Link(displayName: "Syllabus Tracking", url: 'message'),
   ];
+  TeachersData teachersData;
 
   @override
   Widget build(BuildContext context) {
@@ -57,19 +58,22 @@ class _DashBoardState extends State<DashBoard> {
                       style: textStyleSubjects,
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 40,
+                      child: Center(
+                        child: Text('Sections',style: textStyleSubjects,),
+                      ),
                     ),
                     Expanded(
                       flex: 1,
                       child: GridView.builder(
                         gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 4) ,
+                            crossAxisCount: teachersData.section.length),
                           itemCount: teachersData.section.length,
                           itemBuilder: (BuildContext context, int index){
                             return GestureDetector(
                               onTap:(){
                                 debugPrint('button tapped');
-                                Navigator.pushNamed(context, 'absents',arguments: {'section':teachersData.section[index]});} ,
+                                Navigator.pushReplacementNamed(context, 'absents',arguments: {'section':teachersData.section[index]});},
                               child: Card(
                                 color: Colors.black87,
                                 child: Center(child: Text(teachersData.section[index],style: textStyleSubjects,)),
@@ -143,7 +147,9 @@ class _DashBoardState extends State<DashBoard> {
               ),
             );
           }else if (snapshot.hasError){
-            return Loading(message: 'Encountered an error',);
+            return Loading(message: 'Encountered an error ${snapshot.error}',);
+          }else if (snapshot == null){
+            return Loading(message: 'snapshot has no data' ,);
           }
           else {
             return Loading(message: 'Something else is going on ',);

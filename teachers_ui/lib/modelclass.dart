@@ -17,7 +17,7 @@ class StudentData {
 class TeachersData {
   final String name;
   final String subjectTeaching;
-  final List<dynamic> section;
+  List<dynamic> section = [];
   TeachersData({this.name, this.subjectTeaching, this.section});
 }
 
