@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
             routes:{
               '/': (context) => Wrapper(),
               'dashboard':(context) => DashBoard(),
-              'absents':(context)=> OneSection1(),
+              'absents':(context) => OneSection1(),
               'register': (context)=> Register(),
               'login': (context)=> Login(),
               'message': (context)=> OneSection2(),

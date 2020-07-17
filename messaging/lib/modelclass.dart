@@ -11,7 +11,9 @@ class Teacher{
 class StudentData {
   final String name;
   final String rollno;
-  StudentData({this.name,this.rollno});
+  final String section;
+  final String subject;
+  StudentData({this.name,this.rollno,this.section,this.subject});
 }
 
 class TeachersData{

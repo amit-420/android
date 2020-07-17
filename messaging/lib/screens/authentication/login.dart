@@ -104,8 +104,7 @@ class _FormFieldState extends State<FormField> {
                     });
                   }else{
                     error = 'User logged in successfully';
-                    DataServices().getstuRecord(rollno).then((value){name = value.toString();});
-                    Navigator.pushReplacementNamed(context, 'grid',arguments:{name: name});
+                    Navigator.pushReplacementNamed(context, 'grid',);
                     loading = false;
                   }
                 }

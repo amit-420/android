@@ -15,7 +15,7 @@ class _OneSubjectState extends State<OneSubject> {
   Widget build(BuildContext context) {
 
     data = ModalRoute.of(context).settings.arguments;
-    print(data);
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -27,11 +27,16 @@ class _OneSubjectState extends State<OneSubject> {
         title: Text(data['title'], style: appbar_text_Style,textAlign: TextAlign.center,strutStyle: StrutStyle(height: 5),),
       ),
       body: Container(
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           color: Colors.black87,
         ),
         child: Column(
           children: <Widget>[
+            SizedBox(height: 20,),
+            Container(
+              child: Text("Presently: 75%",style: textStyleAssHig,),
+            ),
             Container(
               height: 350,
               child: ListView(
@@ -89,7 +94,7 @@ class _OneSubjectState extends State<OneSubject> {
                 debugPrint('Entering messages');
               },
               child: Container(
-                height: 350,
+                height: 50,
                 width: 300,
                 decoration: BoxDecoration(
                   color: Colors.black,
@@ -102,12 +107,14 @@ class _OneSubjectState extends State<OneSubject> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
       );
 
   }
+
+
 }
 

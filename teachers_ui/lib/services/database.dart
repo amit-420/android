@@ -15,9 +15,9 @@ class DataServices {
   Future updateProRecord(
       String name, String email, String subject, List<String> section) async {
     return await profCollection.document(uid).setData({
-      'name': name,
-      'email': email,
-      'subject_teaching': subject,
+      'name': name.toUpperCase(),
+      'email': email.toLowerCase(),
+      'subject_teaching': subject.toUpperCase(),
       'section': section,
     });
   }

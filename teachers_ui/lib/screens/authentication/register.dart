@@ -40,10 +40,10 @@ class _FormFieldState extends State<FormField> {
   String email = '';
   String subject = '';
   List<String> section = [];
-  List<String> sectionlist = ['R', 'S', 'T', 'U'];
+  List<String> sectionList = ['R', 'S', 'T', 'U'];
   String password = '';
   String error = '';
-  bool _ischecked = false;
+  List<bool> checked = [];
 
   @override
   Widget build(BuildContext context) {
@@ -101,21 +101,32 @@ class _FormFieldState extends State<FormField> {
               height: 20,
             ),
             SizedBox(
-              height: 30,
+              height: 40,
                       child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: sectionlist.length),
-                  itemCount: sectionlist.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return CheckboxListTile(
-                        title: Text(sectionlist[index]),
-                        value: _ischecked,
-                        onChanged: (val) {
-                          _ischecked = val;
-                          if (val == true) {
-                            section.add(sectionlist[index]);
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: sectionList.length),
+                        itemCount: sectionList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          for (int i = 0 ; i <= sectionList.length; i++){
+                            checked.add(false);
                           }
-                        });
+                              return CheckboxListTile(
+                                title: Text(sectionList[index]),
+                                value: checked[index],
+                                onChanged: (val) {
+                                  print(val.toString());
+                                 setState(() {
+                                   checked[index] = val;
+                                   if (checked[index] == true) {
+                                     section.add(sectionList[index]);
+                                   }else if (checked[index] == false && section.isNotEmpty){
+                                     section.removeAt(index);
+                                   }
+                                 });
+                                 for (int i = 0; i < section.length; i++){
+                                     debugPrint(section[i]);
+                                 }
+                                });
                   }),
             ),
             SizedBox(

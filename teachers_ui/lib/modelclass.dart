@@ -26,3 +26,9 @@ class Link {
   final String url;
   Link({this.displayName, this.url});
 }
+
+class SectionList {
+  final String section;
+  final bool;
+  SectionList({this.section, this.bool});
+}

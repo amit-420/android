@@ -61,7 +61,9 @@ class _DashBoardState extends State<DashBoard> {
                     ),
                     Expanded(
                       flex: 1,
-                      child: ListView.builder(
+                      child: GridView.builder(
+                        gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 4) ,
                           itemCount: teachersData.section.length,
                           itemBuilder: (BuildContext context, int index){
                             return GestureDetector(
@@ -69,8 +71,8 @@ class _DashBoardState extends State<DashBoard> {
                                 debugPrint('button tapped');
                                 Navigator.pushNamed(context, 'absents',arguments: {'section':teachersData.section[index]});} ,
                               child: Card(
-                                color: Colors.white10,
-                                child: Text(teachersData.section[index]),
+                                color: Colors.black87,
+                                child: Center(child: Text(teachersData.section[index],style: textStyleSubjects,)),
                               ),
                             );
                           }),

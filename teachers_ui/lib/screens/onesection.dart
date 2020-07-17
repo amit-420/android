@@ -15,46 +15,54 @@ class OneSection1 extends StatefulWidget {
   @override
   _OneSection1State createState() => _OneSection1State();
 }
-
 class _OneSection1State extends State<OneSection1> {
   Map data = {};
   @override
   Widget build(BuildContext context) {
     data = ModalRoute.of(context).settings.arguments;
-    //print(name);
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(icon: Icon(Icons.menu), onPressed: (){
-          debugPrint('menu pressed');
-          Navigator.pushReplacementNamed(context, 'dashboard');
-        }),
-        title: Text(
-          "${data['section']} Section",
-          style: appbar_style,
-          textAlign: TextAlign.center,
+    if ( data != null) {
+      return Scaffold(
+        appBar: AppBar(
+          leading: IconButton(icon: Icon(Icons.menu), onPressed: () {
+            debugPrint('menu pressed');
+            Navigator.pushReplacementNamed(context, 'dashboard');
+          }),
+          title: Text(
+            "${data['section']} Section",
+            style: appbar_style,
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Colors.black87,
+          elevation: 0,
+          centerTitle: true,
         ),
-        backgroundColor: Colors.black87,
-        elevation: 0,
-        centerTitle: true,
-      ),
 
-      body: Container(
-        decoration: BoxDecoration(
-          color: Colors.black87,
+        body: Container(
+          decoration: BoxDecoration(
+            color: Colors.black87,
+          ),
+          width: MediaQuery
+              .of(context)
+              .size
+              .width,
+          height: MediaQuery
+              .of(context)
+              .size
+              .height,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                  child: AbsentStudents(
+                    section: data['section'],
+                  )),
+            ],
+          ),
         ),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-                child: AbsentStudents(
-              section: widget.section1,
-            )),
-          ],
-        ),
-      ),
-    );
+      );
+    }else{
+      return Loading(message: 'Data not yet received',);
+    }
   }
 }
 
@@ -143,12 +151,13 @@ class _AbsentStudentsState extends State<AbsentStudents> {
                   ),
                   RaisedButton(
                     onPressed: () {
-                      print('foo()');
                       for (int i = 0; i < noAbsent.length; i++) {
                         _writing(i, widget.section, teachersData.subjectTeaching);
-                        debugPrint('$noAbsent' + 'Uploaded');
+                        debugPrint('${noAbsent[i]}' + 'Uploaded');
                       }
-                    },
+                      _updateLecturesDone(widget.section, teachersData.subjectTeaching);
+                      noAbsent.clear();
+                      },
                     child: Text(
                       'Submit final absent Numbers..',
                       style: TextStyle(fontWeight: FontWeight.bold),
@@ -162,8 +171,7 @@ class _AbsentStudentsState extends State<AbsentStudents> {
             );
           } else if (snapshot.hasError){
             print(snapshot.error);
-            return Loading(message: 'Encountered an error');
-
+            return Loading(message: '${snapshot.error}');
           }else{
             return Loading(message: 'Something else is going on');
           }
@@ -184,7 +192,7 @@ class _AbsentStudentsState extends State<AbsentStudents> {
 
   void _writing(int i, String section, String subject) async {
     return await firebase
-        .collection('students_record_' + section)
+        .collection('students_record_$section')
         .document(noAbsent[i])
         .collection('absence_record')
         .document(subject)
@@ -193,6 +201,17 @@ class _AbsentStudentsState extends State<AbsentStudents> {
       "absented_no": FieldValue.increment(1),
     }, merge: true).then((_) {
       debugPrint("data Uploaded");
+    });
+  }
+
+  void _updateLecturesDone(String section, String subject) async {
+    return await firebase
+        .collection('lectures_done_$section')
+        .document(subject)
+        .setData({
+        'lectures_done': FieldValue.increment(1),
+        },merge: true).then((_){
+          debugPrint('lectures done updated');
     });
   }
 }
