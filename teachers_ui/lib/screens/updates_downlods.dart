@@ -12,17 +12,20 @@ import 'package:teachersui/screens/onesection.dart';
 import 'package:teachersui/services/auth.dart';
 import 'package:teachersui/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:teachersui/screens/dashboard.dart';
 
-class DashBoard extends StatefulWidget {
+class OneSection3 extends StatefulWidget {
 
   @override
-  _DashBoardState createState() => _DashBoardState();
+  _OneSection3State createState() => _OneSection3State();
 }
 
-class _DashBoardState extends State<DashBoard> {
+class _OneSection3State extends State<OneSection3> {
   final List<Link> list = [
-    Link(displayName: "updates & Downloads ", url: 'updates'),
-    Link(displayName: "Messaging", url: 'message'),
+    Link(displayName: "Daily Update 1", url: '/'),
+    Link(displayName: "Daily Update 2", url: '/'),
+    Link(displayName: "Daily Update 3", url: '/'),
+    Link(displayName: "Monthly Downloads", url: '/'),
   ];
   TeachersData teachersData;
 
@@ -37,13 +40,14 @@ class _DashBoardState extends State<DashBoard> {
             return Scaffold(
               appBar: AppBar(
                 title: Text(
-                  'DashBoard',
+                  'Updates & content',
                   style: appbar_style,
                 ),
                 backgroundColor: Colors.lightBlue,
                 elevation: 0,
                 centerTitle: true,
               ),
+              drawer: DashBoard(),
               body: Container(
                 color: Colors.white,
                 height: MediaQuery.of(context).size.height,
@@ -57,30 +61,7 @@ class _DashBoardState extends State<DashBoard> {
                       teachersData.name,
                       style: textStyleSubjects,
                     ),
-                    SizedBox(
-                      height: 40,
-                      child: Center(
-                        child: Text('Classes',style: textStyleSubjects,),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: GridView.builder(
-                        gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3),
-                          itemCount: teachersData.section.length,
-                          itemBuilder: (BuildContext context, int index){
-                            return GestureDetector(
-                              onTap:(){
-                                debugPrint('button tapped');
-                                Navigator.pushReplacementNamed(context, 'absents',arguments: {'section':teachersData.section[index]});},
-                              child: Card(
-                                color: Colors.black87,
-                                child: Center(child: Text(teachersData.section[index],style: textStyleSubjects,)),
-                              ),
-                            );
-                          }),
-                    ),
+
                     Expanded(
                       flex: 3,
                       child: ListView.builder(
@@ -115,33 +96,7 @@ class _DashBoardState extends State<DashBoard> {
                                 ));
                           }),
                     ),
-                    GestureDetector(
-                        onTap: () {
-                          AuthService().signOut();
-                          Navigator.of(context).pushReplacementNamed('/');
-                        },
-                        child: Card(
-                          margin: EdgeInsets.fromLTRB(0, 20, 15, 0),
-                          color: Colors.black87,
-                          child: Container(
-                            padding: EdgeInsets.all(10),
-                            margin: EdgeInsets.all(10),
-                            child: Column(
-                              children: <Widget>[
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  'Logout',
-                                  style: textStyleSubjects,
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                              ],
-                            ),
-                          ),
-                        )),
+
                   ],
                 ),
               ),

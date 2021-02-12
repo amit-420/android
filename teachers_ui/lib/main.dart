@@ -9,6 +9,7 @@ import 'package:teachersui/screens/authentication/login.dart';
 import 'package:teachersui/modelclass.dart';
 import 'package:teachersui/services/auth.dart';
 import 'package:teachersui/services/database.dart';
+import 'package:teachersui/screens/updates_downlods.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
               'register': (context)=> Register(),
               'login': (context)=> Login(),
               'message': (context)=> OneSection2(),
+              'updates': (context)=> OneSection3(),
               'loading': (context)=> Loading(),
         }
 

@@ -1,45 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:teachersui/constants.dart';
-import 'package:teachersui/modelclass.dart';
-import 'package:teachersui/services/auth.dart';
-import 'package:teachersui/services/database.dart';
-
+import 'package:lets_connect/constants.dart';
+import 'package:lets_connect/services/auth.dart';
 
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login here',style: appbar_style,),
+        title: Text('Login here', style: appbar_style,),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.black87,
-        actions: <Widget>[
+        backgroundColor: Colors.blue,
+        actions: [
           IconButton(
-            icon: Icon(Icons.login),
-            onPressed: ()=> Navigator.pushReplacementNamed(context, 'login'),
-          )
+            tooltip: 'DON\'T HAVE ACCOUNT',
+            icon: Icon(Icons.person),
+            onPressed: ()=> Navigator.pushReplacementNamed(context, 'register'),
+          ),
         ],
-
       ),
-      body: FormField(),
+      body: FormFields(),
     );
   }
 }
 
-
-class FormField extends StatefulWidget {
+class FormFields extends StatefulWidget {
   @override
-  _FormFieldState createState() => _FormFieldState();
+  _FormFieldsState createState() => _FormFieldsState();
 }
 
-
-class _FormFieldState extends State<FormField> {
+class _FormFieldsState extends State<FormFields> {
 
   final _formKey = GlobalKey<FormState>();
   final AuthService _auth = AuthService();
-  String name = '';
-  String currentSection = '';
   String email = '';
   String password = '';
   String error = '';
@@ -50,17 +43,16 @@ class _FormFieldState extends State<FormField> {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: Colors.black87
+        color: Colors.blueAccent
       ),
       child: Form(
         key: _formKey,
         child: Column(
-          children: <Widget>[
+          children: [
             SizedBox(height: 20,),
             TextFormField(
-              decoration: InputDecoration(labelText:'Email',labelStyle: textStyleNormal,),
+              decoration: InputDecoration(labelText: 'Email', labelStyle: textStyleNormal,),
               style: textStyleInput,
-              validator: (val) => val.length < 6 ? 'Enter valid email' : null,
               onChanged: (val){
                 setState(() {
                   email = val;
@@ -99,9 +91,9 @@ class _FormFieldState extends State<FormField> {
               },
               child: Text("Login",style: textStyleSubjects,),
               color: Colors.black87,),
-            Text(error,style: TextStyle(color: Colors.redAccent,fontSize: 14.0),),
-          ],
 
+
+          ],
         ),
       ),
     );

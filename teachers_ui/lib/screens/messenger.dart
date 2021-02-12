@@ -18,15 +18,15 @@ class _OneSection2State extends State<OneSection2> {
     Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("S section",style: appbar_style,textAlign: TextAlign.center,),
-        backgroundColor: Colors.black87,
+        title: Text("Messaging",style: appbar_style,textAlign: TextAlign.center,),
+        backgroundColor: Colors.lightBlue,
         elevation: 0,
         centerTitle: true,
       ),
       drawer: DashBoard(),
       body: Container(
         decoration: BoxDecoration(
-          color: Colors.black87,
+          color: Colors.white,
         ),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -55,7 +55,7 @@ class _MessengerState extends State<Messenger> {
       margin: EdgeInsets.all(10),
       constraints: BoxConstraints.tightForFinite(width: double.maxFinite,height: 300),
       decoration: BoxDecoration(
-        color: Colors.black,
+        color: Colors.black87,
         borderRadius: BorderRadius.circular(5),
       ),
       child: Column(

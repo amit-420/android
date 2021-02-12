@@ -24,11 +24,11 @@ class _OneSection1State extends State<OneSection1> {
       return Scaffold(
         appBar: AppBar(
           title: Text(
-            "${data['section']} Section",
+            "Class ${data['section']} ",
             style: appbar_style,
             textAlign: TextAlign.center,
           ),
-          backgroundColor: Colors.black87,
+          backgroundColor: Colors.lightBlue,
           elevation: 0,
           centerTitle: true,
 
@@ -36,7 +36,7 @@ class _OneSection1State extends State<OneSection1> {
         drawer: DashBoard(),
         body: Container(
           decoration: BoxDecoration(
-            color: Colors.black87,
+            color: Colors.white,
           ),
           width: MediaQuery
               .of(context)
@@ -90,13 +90,15 @@ class _AbsentStudentsState extends State<AbsentStudents> {
               constraints: BoxConstraints.tightForFinite(
                   width: double.maxFinite, height: 300),
               decoration: BoxDecoration(
-                  color: Colors.black, borderRadius: BorderRadius.circular(5)),
+                  color: Colors.lightBlueAccent, borderRadius: BorderRadius.circular(5)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Expanded(
                     flex: 3,
-                    child: ListView.builder(
+                    child: GridView.builder(
+                        gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 4),
                         scrollDirection: Axis.vertical,
                         itemCount: noAbsent.length,
                         itemBuilder: (BuildContext context, int index) {
@@ -107,18 +109,21 @@ class _AbsentStudentsState extends State<AbsentStudents> {
                             child: Container(
                               margin: EdgeInsets.all(5),
                               decoration: BoxDecoration(
-                                  color: Colors.white10,
+                                  color: Colors.lightBlue,
                                   border: Border.all(
                                       color: Colors.white10,
                                       width: 2,
                                       style: BorderStyle.solid)),
                               height: 25,
                               width: 20,
-                              child: Text(
-                                noAbsent[index],
-                                style: TextStyle(
-                                    color: Colors.indigo[500],
-                                    letterSpacing: 2),
+                              child: Center(
+                                child: Text(
+                                  noAbsent[index],
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      letterSpacing: 2),
+                                ),
                               ),
                             ),
                           );
@@ -159,8 +164,8 @@ class _AbsentStudentsState extends State<AbsentStudents> {
                       'Submit final absent Numbers..',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    color: Colors.white10,
-                    textColor: Colors.indigo[500],
+                    color: Colors.blue,
+                    textColor: Colors.white,
                     splashColor: Colors.indigo[500],
                   )
                 ],

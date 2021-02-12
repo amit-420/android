@@ -7,7 +7,10 @@ class Teacher{
   final String uid;
   Teacher({this.uid});
 }
-
+class Percent{
+  final double no;
+  Percent({this.no});
+}
 class StudentData {
   final String name;
   final String rollno;

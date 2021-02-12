@@ -37,7 +37,7 @@ class FormField extends StatefulWidget {
 
 class _FormFieldState extends State<FormField> {
 
-  final _formKey = GlobalKey<FormState>();
+  final _formKey2 = GlobalKey<FormState>();
   final AuthService _auth = AuthService();
   String rollno = '';
   String name = '';
@@ -54,20 +54,9 @@ class _FormFieldState extends State<FormField> {
           color: Colors.black87
       ),
       child: Form(
-        key: _formKey,
+        key: _formKey2,
         child: Column(
           children: <Widget>[
-            SizedBox(height: 20,),
-            TextFormField(
-              decoration: InputDecoration(labelText:'RollNO',labelStyle: textStyleNormal,),
-              style: textStyleInput,
-              validator: (val) => val.length > 4 ? 'Enter valid rollno' : null,
-              onChanged: (val){
-                setState(() {
-                  rollno = val;
-                });
-              },
-            ),
             SizedBox(height: 20,),
             TextFormField(
               decoration: InputDecoration(labelText:'Email',labelStyle: textStyleNormal,),
@@ -94,7 +83,7 @@ class _FormFieldState extends State<FormField> {
             SizedBox(height: 20,),
             FlatButton(
               onPressed: () async{
-                if (_formKey.currentState.validate()) {
+                if (_formKey2.currentState.validate()) {
                   setState(() => loading = true);
                   dynamic result = await _auth.signInWithEAndP(email, password);
                   if (result == null){

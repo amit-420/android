@@ -9,11 +9,11 @@ import 'package:provider/provider.dart';
 class SubjectGrid extends StatelessWidget {
 
   final List<String> subjects = [
-  "Chemistry",
-  "Electrical",
+  "Science",
+  "English",
   "Maths",
-  "CP",
-  "Social-S",
+  "Python",
+  "Social-s",
 ];
   @override
   Widget build(BuildContext context) {
@@ -26,17 +26,15 @@ class SubjectGrid extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text('welcome ${studentData.name.toUpperCase()}',style: appbar_text_Style,textAlign: TextAlign.center,strutStyle: StrutStyle(height: 5),),
-            bottomOpacity: 0.1,
             backgroundColor: Colors.black87,
             elevation: 0,
             centerTitle: true,
             actions: <Widget>[
-              RaisedButton( child: Text('SignOut',style: textStyleNormal,),
+              FlatButton( child: Text('SignOut',style: textStyleNormal,),
                   color: Colors.black87,
-                  elevation: 0,
-
                   onPressed: (){
                 AuthService().signOut();
+                Navigator.pushReplacementNamed(context, 'login');
               })
             ],
           ),
@@ -47,7 +45,7 @@ class SubjectGrid extends StatelessWidget {
               scrollDirection: Axis.vertical,
               children: subjects.map((subject){
               return  GestureDetector(
-                    onTap: (){Navigator.pushNamed(context, 'pert_subj', arguments: {'title':subject});},
+                    onTap: (){Navigator.pushNamed(context, 'pert_subj', arguments: {'title':subject,'rollno':studentData.rollno,'section':studentData.section});},
                     child: Container(
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -70,8 +68,10 @@ class SubjectGrid extends StatelessWidget {
           ),
         );}
         else{
-          return Container(
-            child: Text("something is wrong"),
+          return Scaffold(
+              body:Container(
+                child: Text("something is wrong"),
+              ),
           );
         }
       }

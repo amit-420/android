@@ -4,7 +4,9 @@ import 'package:messaging/modelclass.dart';
 class DataServices{
 
   final String uid;
-  DataServices({this.uid});
+  final String subject;
+  final Map data;
+  DataServices({this.uid,this.subject,this.data});
 
 final CollectionReference profCollection = Firestore.instance.collection("profs_record");
 final CollectionReference stuCollection = Firestore.instance.collection('students_record');
@@ -25,10 +27,34 @@ Future updateStuRecord(String name,String email, String rollno, String section) 
         section: value['section'],
         subject: null);
   }
+
+  Percent _percent(dynamic done){
+    var total;
+    var end;
+    Firestore.instance.collection('lectures_done_${data['section']}')
+        .document(data['title']).get()
+        .then((value) {
+      print(value.data['lectures_done'].toString());
+      total = value.data['lectures_done'];});
+    end = (total - done )/total;
+    print(end);
+  return Percent(
+    no: end,
+  );
+  }
 Stream<StudentData> get studentData{
   return stuCollection.document(uid).snapshots().map(_stuDataFromSnapshot);
 }
 
+
+Stream<Percent> get percent {
+  return Firestore.instance
+          .collection('students_record_${data['section']}')
+          .document('${data['rollno']}')
+          .collection('absence_record')
+          .document(data['title'])
+          .snapshots().map((value1)=> _percent(value1));
+}
 
 
 }

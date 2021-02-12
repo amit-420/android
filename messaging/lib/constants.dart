@@ -46,5 +46,14 @@ const appbar_style = TextStyle(
     letterSpacing: 4,color: Colors.white10,
     fontWeight: FontWeight.bold);
 
+Color colourChoice(dynamic percent){
+  debugPrint('color $percent');
+  if(percent <= 0.75){
+    return Colors.redAccent[400];
+  }else{
+    return Colors.greenAccent[400];
+  }
+}
+
 
 
