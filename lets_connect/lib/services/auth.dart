@@ -11,12 +11,12 @@ class AuthService{
 //    return user != null ? Student(uid: user.uid) : null;
 //  }
 
-  Teacher _userIdOfTeacherFromFirebase(User user) {
-    return user != null ? Teacher(uid: user.uid) : null;
+  Human _userIdOfTeacherFromFirebase(User user) {
+    return user != null ? Human(uid: user.uid,email:user.email) : null;
   }
 
   // getting user stream
-  Stream<Teacher> get user {
+  Stream<Human> get user {
     return _auth.authStateChanges()
         .map(_userIdOfTeacherFromFirebase);
   }
@@ -26,7 +26,7 @@ class AuthService{
     try{
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       User user = userCredential.user;
-      await DataServices(uid: user.uid).updateProRecord(
+      await DataServices(email: user.email).updateProRecord(
         email, gender, age,
       );
       return _userIdOfTeacherFromFirebase(userCredential.user);

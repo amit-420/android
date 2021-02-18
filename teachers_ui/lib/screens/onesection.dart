@@ -31,7 +31,6 @@ class _OneSection1State extends State<OneSection1> {
           backgroundColor: Colors.lightBlue,
           elevation: 0,
           centerTitle: true,
-
         ),
         drawer: DashBoard(),
         body: Container(

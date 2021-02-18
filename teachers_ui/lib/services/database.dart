@@ -12,8 +12,7 @@ class DataServices {
   final CollectionReference studentsCollection =
       Firestore.instance.collection('students_record');
 
-  Future updateProRecord(
-      String name, String email, String subject, List<String> section) async {
+  Future updateProRecord(String name, String email, String subject, List<String> section) async {
     return await profCollection.document(uid).setData({
       'name': name.toUpperCase(),
       'email': email.toLowerCase(),

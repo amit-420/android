@@ -102,7 +102,7 @@ class _FormFieldsState extends State<FormFields> {
               onPressed: () async{
                 if (_formKey.currentState.validate()) {
                   setState(() => loading = true);
-                  dynamic result = await _auth.rWithEAndP(email, gender, age,password);
+                  dynamic result = await _auth.rWithEAndP(email, gender, age ,password);
                   if (result == null){
                     setState(() {
                       error = 'please supply a valid email';

@@ -12,10 +12,14 @@ class SomethingWentWrong extends StatelessWidget {
 }
 
 class Loading extends StatelessWidget {
+  final String message;
+  Loading({this.message});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text('Loading....'),
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(child:Text('Loading.... $message')),
+      ),
     );
   }
 }

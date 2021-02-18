@@ -3,22 +3,29 @@
 //   Student({this.uid});
 // }
 //
-class Teacher {
+class Human {
   final String uid;
-  Teacher({this.uid});
+  final String email;
+  Human({this.uid, this.email});
 }
 
+class Qno {
+  final String no;
+  Qno({this.no});
+}
 // class StudentData {
 //   final String name;
 //   final String rollno;
 //   StudentData({this.name, this.rollno});
 // }
 //
-class TeachersData {
+class UsersData {
   final String email;
   final String gender;
   final String age;
-  TeachersData({this.email, this.gender, this.age});
+  final String parMail;
+  final Map answers;
+  UsersData({this.email, this.gender, this.age, this.parMail,this.answers});
 }
 //
 // class Link {

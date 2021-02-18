@@ -11,8 +11,8 @@ final textStyleSubjects = TextStyle(
     fontWeight: FontWeight.bold);
 final textStyleInput = TextStyle(
     fontSize: 15,
-    color: Colors.white,
+    color: Colors.black,
     fontWeight: FontWeight.bold);
 final textStyleNormal = TextStyle(
   fontSize: 15,
-  color: Colors.white,);
+  color: Colors.black,);
